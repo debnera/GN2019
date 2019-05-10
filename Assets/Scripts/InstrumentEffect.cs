@@ -29,8 +29,14 @@ public class InstrumentEffect : MonoBehaviour
         if (timer < 0) Destroy(gameObject);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        // TODO: Do stuff to enemies
+        Wolf wolf = other.GetComponent<Wolf>();
+        if (wolf)
+        {
+            wolf.HitByInstrument(this);
+        }
     }
+
+
 }

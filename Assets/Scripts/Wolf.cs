@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Wolf : MonoBehaviour
 {
-    private float acceleration = 0.1f;
-    private float maxSpeed = 1f;
+    private float acceleration = 10f;
     private GameObject target;
     
     // Start is called before the first frame update
@@ -18,27 +17,14 @@ public class Wolf : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 direction = target.transform.position - transform.position;
-        Vector2 direction2d = new Vector2(direction.x, direction.y);
-        direction2d.Normalize();
-        
-        
-        Vector2 velocity = GetComponent<Rigidbody2D>().velocity;
-        
-        // TODO
-        
-        
-//        velocity += direction2d * Time.deltaTime * acceleration;
-//        
-//        float magnitude = velocity.magnitude;
-//        if (magnitude > maxSpeed)
-//        {
-//            velocity = direction2d.normalized * maxSpeed;
-//        }
+        Vector2 direction = target.transform.position - transform.position;
+        direction.Normalize();
+        GetComponent<Rigidbody2D>().AddForce(direction * acceleration * Time.deltaTime);
+    }
 
-        velocity = direction2d.normalized * maxSpeed;
-        GetComponent<Rigidbody2D>().velocity = velocity;
-        
-
+    public void HitByInstrument(InstrumentEffect instrumentEffect)
+    {
+        Vector2 direction = instrumentEffect.transform.position - transform.position;
+        GetComponent<Rigidbody2D>().AddForce(-direction * 5f, ForceMode2D.Impulse);
     }
 }
