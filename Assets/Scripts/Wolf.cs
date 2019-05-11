@@ -6,6 +6,7 @@ public class Wolf : Enemy
 {
     public float movementForce = 10f;
     public float attackSpeed = 0.5f; // Attacks per second (Sync this to BPM?)
+    public float maxFollowDistance = 5f;
 
     private bool canAttack = true;
     private GameObject target;
@@ -15,8 +16,7 @@ public class Wolf : Enemy
     // Start is called before the first frame update
     void Start()
     {
-        House house = FindObjectOfType<House>();
-        target = house.gameObject;
+        
         rbody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -24,6 +24,13 @@ public class Wolf : Enemy
     // Update is called once per frame
     void Update()
     {
+        if (!target || Vector3.Distance(target.transform.position, transform.position) > maxFollowDistance)
+        {
+            // Reset to house if current target dies
+            House house = FindObjectOfType<House>();
+            target = house.gameObject;
+        }
+        
         Vector2 direction = target.transform.position - transform.position;
         direction.Normalize();
 
@@ -36,6 +43,7 @@ public class Wolf : Enemy
     {
         Vector2 direction = instrumentEffect.transform.position - transform.position;
         rbody.AddForce(-direction * 5f, ForceMode2D.Impulse);
+        if (instrumentEffect.owner) target = instrumentEffect.owner.gameObject;
     }
 
     private void OnCollisionStay2D(Collision2D other)

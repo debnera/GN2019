@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InstrumentEffect : MonoBehaviour
 {
+    public Character owner;
     private float timeToLive = 0.2f;
     private float timer;
     private float originalScale;

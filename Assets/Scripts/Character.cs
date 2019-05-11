@@ -37,5 +37,6 @@ public class Character : MonoBehaviour
         obj.transform.localPosition = Vector3.zero;
         InstrumentEffect instrumentEffect = obj.AddComponent<InstrumentEffect>();
         instrumentEffect.SetSize(3f);  // TODO: Change size based on something
+        instrumentEffect.owner = this;
     }
 }
