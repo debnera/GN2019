@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wolf : MonoBehaviour
+public class Wolf : Enemy
 {
-    private float acceleration = 10f;
+    public float movementForce = 10f;
     private GameObject target;
+    private Rigidbody2D rbody;
     
     // Start is called before the first frame update
     void Start()
     {
         House house = FindObjectOfType<House>();
         target = house.gameObject;
+        rbody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -19,12 +21,12 @@ public class Wolf : MonoBehaviour
     {
         Vector2 direction = target.transform.position - transform.position;
         direction.Normalize();
-        GetComponent<Rigidbody2D>().AddForce(direction * acceleration * Time.deltaTime);
+        rbody.AddForce(direction * movementForce * Time.deltaTime);
     }
 
-    public void HitByInstrument(InstrumentEffect instrumentEffect)
+    public override void OnInstrumentHit(InstrumentEffect instrumentEffect)
     {
         Vector2 direction = instrumentEffect.transform.position - transform.position;
-        GetComponent<Rigidbody2D>().AddForce(-direction * 5f, ForceMode2D.Impulse);
+        rbody.AddForce(-direction * 5f, ForceMode2D.Impulse);
     }
 }

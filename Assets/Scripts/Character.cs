@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    public float movementSpeed = 100f;
+    
     public PlayerController currentPlayerController;
+    
     
     // Start is called before the first frame update
     void Start()
@@ -15,25 +18,24 @@ public class Character : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (!currentPlayerController)
+        {
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        }
     }
 
     public void Move(Vector2 velocity)
     {
-        GetComponent<Rigidbody2D>().velocity = velocity;
+        GetComponent<Rigidbody2D>().velocity = velocity * movementSpeed;
     }
 
     public void PlayInstrument()
     {
         GameObject obj = Resources.Load<GameObject>("InstrumentEffect");
-        obj = Instantiate(obj, transform.position, Quaternion.identity);
+        //obj = Instantiate(obj, transform.position, Quaternion.identity);
+        obj = Instantiate(obj, transform);
+        obj.transform.localPosition = Vector3.zero;
         InstrumentEffect instrumentEffect = obj.AddComponent<InstrumentEffect>();
         instrumentEffect.SetSize(3f);  // TODO: Change size based on something
     }
-    
-    /*
-     * GetComponent<Rigidbody>().velocity =
-            new Vector3(-Input.GetAxis("p" + playerNum.ToString() + "_joystick_horizontal") * speed * 60,
-                        0, -Input.GetAxis("p" + playerNum.ToString() + "_joystick_vertical") * speed * 60);
-     */
 }

@@ -31,10 +31,10 @@ public class InstrumentEffect : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Wolf wolf = other.GetComponent<Wolf>();
-        if (wolf)
+        Enemy hittable = other.GetComponent<Enemy>();
+        if (hittable)
         {
-            wolf.HitByInstrument(this);
+            hittable.OnInstrumentHit(this);
         }
     }
 
