@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerFactory : MonoBehaviour
 {
     bool[] c;
-    int numPlayer = 0;
+    public int numPlayer = 0;
     // Start is called before the first frame update
     void Start()
     {

@@ -9,8 +9,8 @@ public class Wolf : Enemy
     public float maxFollowDistance = 5f;
 
     private bool canAttack = true;
-    private GameObject target;
-    private Rigidbody2D rbody;
+    protected GameObject target;
+    protected Rigidbody2D rbody;
     private SpriteRenderer spriteRenderer;
     
     // Start is called before the first frame update
@@ -22,7 +22,7 @@ public class Wolf : Enemy
     }
 
     // Update is called once per frame
-    protected void Update()
+    protected void FixedUpdate()
     {
         float movementMultiplier = 1;
         if (!target || Vector3.Distance(target.transform.position, transform.position) > maxFollowDistance)
