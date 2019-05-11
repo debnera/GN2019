@@ -69,6 +69,7 @@ public class Wolf : Enemy
                 canAttack = false;
                 StartCoroutine(ResetAttack());
                 damageable.ReceiveDamage(1);
+                GetComponent<SpriteSwapper>().StartAttack();
             }
         }
         
@@ -79,4 +80,5 @@ public class Wolf : Enemy
         yield return new WaitForSeconds(1 / attackSpeed);
         canAttack = true;
     }
+
 }
