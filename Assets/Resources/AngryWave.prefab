@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2726740768987030778}
-  - component: {fileID: 2726740768987030782}
   - component: {fileID: 2726740768987030779}
   - component: {fileID: 2726740768987030783}
   - component: {fileID: 2726740768987030780}
   - component: {fileID: 8448968190829781036}
+  - component: {fileID: 2396376979389176389}
   m_Layer: 11
   m_Name: AngryWave
   m_TagString: Untagged
@@ -35,21 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2726740768987030782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2726740768987030769}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2e782bb1749a16a1bfea5e69b67470b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementForce: 10
-  attackSpeed: 0.5
-  maxFollowDistance: 5
 --- !u!50 &2726740768987030779
 Rigidbody2D:
   serializedVersion: 4
@@ -88,8 +73,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 0.64}
-    newSize: {x: 0.32, y: 0.64}
+    oldSize: {x: 1.28, y: 1.28}
+    newSize: {x: 1.28, y: 1.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -134,12 +119,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 186a8cbbefd95094c8fae40976ab4df2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1157b73eb99b4bf41aca4d36134a7328, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.32, y: 0.64}
+  m_Size: {x: 1.28, y: 1.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -158,3 +143,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteName: spr_wave
+--- !u!114 &2396376979389176389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2726740768987030769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc79c0e833d1d1945b0683f372a931b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementForce: 10

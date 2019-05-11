@@ -31,6 +31,7 @@ public class EnemySpawner : MonoBehaviour
     Vector3 GetRandomSpawnPosition(int ind)
     {
         string spawns = "Bounds";
+        if (ind == 1) spawns = "CloudSpawn";
         if (ind == 2) spawns = "WaveSpawn";
         GameObject[] borderWalls = GameObject.FindGameObjectsWithTag(spawns);
         int index = Random.Range(0, borderWalls.Length);

@@ -32,6 +32,12 @@ public class SpriteSwapper : MonoBehaviour
     {
         currentIndex += increment;
         if (currentIndex > maximumIndex) currentIndex = 0;
+        if(transform.childCount > 0)
+        {
+            if (currentIndex == 2) transform.GetChild(0).gameObject.SetActive(true);
+            else if (maximumIndex == 2) transform.GetChild(0).gameObject.SetActive(false);
+        }
+        
         spriteRenderer.sprite = sprites[currentIndex];
     }
 

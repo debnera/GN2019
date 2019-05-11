@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boulder : Wolf
+public class Boulder : Enemy
 {
     private float spinSpeed = 5f;
     private float slowSpeed = 0.999f;
@@ -11,6 +11,7 @@ public class Boulder : Wolf
     {
         base.Start();
         movementForce = 50f;
+        target = FindObjectOfType<House>().gameObject;
     }
     // Start is called before the first frame update
     public override void OnInstrumentHit(InstrumentEffect instrumentEffect)

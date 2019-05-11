@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Bounds
   - WaveSpawn
+  - WaveTarget
+  - CloudSpawn
+  - CloudTarget
   layers:
   - Default
   - TransparentFX

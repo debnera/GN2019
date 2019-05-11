@@ -36,7 +36,6 @@ public class PlayerFactory : MonoBehaviour
             {
                 if (c[i - 1] == false)
                 {
-                    Debug.Log("Wafaan "+i);
                     CreatePlayer(i);
                 }
             }
