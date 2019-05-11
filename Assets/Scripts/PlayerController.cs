@@ -70,29 +70,36 @@ public class PlayerController : MonoBehaviour
             return;
         }
         
-        float horizontal = -Input.GetAxis("p" + playerNum.ToString() + "_joystick_horizontal");
-        float vertical = -Input.GetAxis("p" + playerNum.ToString() + "_joystick_vertical");
-//        Vector3 velocity =
-//            new Vector3(-Input.GetAxis("p" + playerNum.ToString() + "_joystick_horizontal") * speed * Time.deltaTime,
-//                0, -Input.GetAxis("p" + playerNum.ToString() + "_joystick_vertical") * speed * Time.deltaTime);
-        if (useKeyboard && playerNum == 1)
+        float vertical = Input.GetAxis("p" + playerNum.ToString() + "_joystick_horizontal");
+        float horizontal = -Input.GetAxis("p" + playerNum.ToString() + "_joystick_vertical");
+        if (Input.GetButtonDown("p" + playerNum.ToString() + "_trigger_back")) SelectNextCharacter();
+        if (Input.GetButtonDown("p" + playerNum.ToString() + "_trigger_front")) currentCharacter.PlayInstrument();
+        //        Vector3 velocity =
+        //            new Vector3(-Input.GetAxis("p" + playerNum.ToString() + "_joystick_horizontal") * speed * Time.deltaTime,
+        //                0, -Input.GetAxis("p" + playerNum.ToString() + "_joystick_vertical") * speed * Time.deltaTime);
+        if (playerNum == 1)
         {
-            if (Input.GetKey(KeyCode.W)) vertical = 1;
-            if (Input.GetKey(KeyCode.S)) vertical = -1;
-            if (Input.GetKey(KeyCode.A)) horizontal = -1;
-            if (Input.GetKey(KeyCode.D)) horizontal = 1;
-            if (Input.GetKeyDown(KeyCode.LeftShift)) SelectNextCharacter();
-            if (Input.GetKeyDown(KeyCode.Space)) currentCharacter.PlayInstrument();
+            if (useKeyboard)
+            {
+                if (Input.GetKey(KeyCode.W)) vertical = 1;
+                if (Input.GetKey(KeyCode.S)) vertical = -1;
+                if (Input.GetKey(KeyCode.A)) horizontal = -1;
+                if (Input.GetKey(KeyCode.D)) horizontal = 1;
+                if (Input.GetKeyDown(KeyCode.LeftShift)) SelectNextCharacter();
+                if (Input.GetKeyDown(KeyCode.Space)) currentCharacter.PlayInstrument();
+            } 
         }
-        
-        if (useKeyboard && playerNum == 2)
+        if (playerNum == 2)
         {
-            if (Input.GetKey(KeyCode.I)) vertical = 1;
-            if (Input.GetKey(KeyCode.K)) vertical = -1;
-            if (Input.GetKey(KeyCode.J)) horizontal = -1;
-            if (Input.GetKey(KeyCode.L)) horizontal = 1;
-            if (Input.GetKeyDown(KeyCode.N)) SelectNextCharacter();
-            if (Input.GetKeyDown(KeyCode.M)) currentCharacter.PlayInstrument();
+            if (useKeyboard)
+            {
+                if (Input.GetKey(KeyCode.I)) vertical = 1;
+                if (Input.GetKey(KeyCode.K)) vertical = -1;
+                if (Input.GetKey(KeyCode.J)) horizontal = -1;
+                if (Input.GetKey(KeyCode.L)) horizontal = 1;
+                if (Input.GetKeyDown(KeyCode.N)) SelectNextCharacter();
+                if (Input.GetKeyDown(KeyCode.M)) currentCharacter.PlayInstrument();
+            }
         }
         Vector3 velocity = new Vector2(horizontal * Time.deltaTime, vertical * Time.deltaTime);
         currentCharacter.Move(velocity);
