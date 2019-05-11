@@ -24,13 +24,15 @@ public class EnemySpawner : MonoBehaviour
         {
             nextSpawn = Random.Range(spawnTimeMin, spawnTimeMax);
             int index = Random.Range(0, enemies.Length);
-            Instantiate(Resources.Load(enemies[index]), GetRandomSpawnPosition(), Quaternion.identity);
+            Instantiate(Resources.Load(enemies[index]), GetRandomSpawnPosition(index), Quaternion.identity);
         }
     }
 
-    Vector3 GetRandomSpawnPosition()
+    Vector3 GetRandomSpawnPosition(int ind)
     {
-        GameObject[] borderWalls = GameObject.FindGameObjectsWithTag("Bounds");
+        string spawns = "Bounds";
+        if (ind == 2) spawns = "WaveSpawn";
+        GameObject[] borderWalls = GameObject.FindGameObjectsWithTag(spawns);
         int index = Random.Range(0, borderWalls.Length);
         GameObject obj = borderWalls[index];
         Bounds b = obj.GetComponent<Collider2D>().bounds;

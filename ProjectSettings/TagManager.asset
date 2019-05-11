@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Bounds
+  - WaveSpawn
   layers:
   - Default
   - TransparentFX
