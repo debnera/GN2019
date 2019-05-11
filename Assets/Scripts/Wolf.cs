@@ -24,19 +24,23 @@ public class Wolf : Enemy
     // Update is called once per frame
     void Update()
     {
+        float movementMultiplier = 1;
         if (!target || Vector3.Distance(target.transform.position, transform.position) > maxFollowDistance)
         {
             // Reset to house if current target dies
             House house = FindObjectOfType<House>();
             target = house.gameObject;
         }
+
+        Character character = target.GetComponent<Character>();
+        if (character) movementMultiplier = 3;
         
         Vector2 direction = target.transform.position - transform.position;
         direction.Normalize();
 
         spriteRenderer.flipX = direction.x > 0;
         
-        rbody.AddForce(direction * movementForce * Time.deltaTime);
+        rbody.AddForce(direction * movementForce * movementMultiplier * Time.deltaTime);
     }
 
     public override void OnInstrumentHit(InstrumentEffect instrumentEffect)
