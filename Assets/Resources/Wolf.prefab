@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3879765811107211930}
   - component: {fileID: 3879765811107211929}
   - component: {fileID: 1573702088}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wolf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,6 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementForce: 100
+  attackSpeed: 0.5
 --- !u!50 &3879765811107211929
 Rigidbody2D:
   serializedVersion: 4
