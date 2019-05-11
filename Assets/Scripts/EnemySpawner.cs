@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
     public float spawnTimeMax = 10f;
 
     private float nextSpawn;
+    private string[] enemies = new[] {"Wolf", "AngryCloud"};
     
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,8 @@ public class EnemySpawner : MonoBehaviour
         if (nextSpawn < 0)
         {
             nextSpawn = Random.Range(spawnTimeMin, spawnTimeMax);
-            Instantiate(Resources.Load("Wolf"), GetRandomSpawnPosition(), Quaternion.identity);
+            int index = Random.Range(0, enemies.Length);
+            Instantiate(Resources.Load(enemies[index]), GetRandomSpawnPosition(), Quaternion.identity);
         }
     }
 
