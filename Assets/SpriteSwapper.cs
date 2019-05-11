@@ -41,6 +41,12 @@ public class SpriteSwapper : MonoBehaviour
         increment = 2;
         maximumIndex = 2;
     }
+    public void EndAttack()
+    {
+        //currentIndex = 0;
+        increment = 1;
+        maximumIndex = 1;
+    }
 
     IEnumerator Swap()
     {

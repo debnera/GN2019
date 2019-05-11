@@ -1,17 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class House : Damageable
 {
     public float HP = 10f;
+    private float maxHP = 10f;
     public float newCharacterMin = 10f;
     public float newCharacterMax = 30f;
     public float spawnTimer;
+    private GameObject healthBar;
 
     public override void ReceiveDamage(float value)
     {
         HP -= value;
+        healthBar.GetComponent<Slider>().value = HP / maxHP;
         if (HP < 0)
         {
             Debug.Log("You lose!");
@@ -26,6 +30,8 @@ public class House : Damageable
     void Start()
     {
         spawnTimer = Random.Range(newCharacterMin, newCharacterMax);
+        healthBar = GameObject.Find("HealthBar");
+        maxHP = HP;
     }
 
     // Update is called once per frame

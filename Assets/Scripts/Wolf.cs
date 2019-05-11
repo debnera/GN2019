@@ -72,7 +72,15 @@ public class Wolf : Enemy
                 GetComponent<SpriteSwapper>().StartAttack();
             }
         }
-        
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        Damageable damageable = other.gameObject.GetComponent<Damageable>();
+        if (damageable)
+        {
+            GetComponent<SpriteSwapper>().EndAttack();
+        }
     }
 
     IEnumerator ResetAttack()
