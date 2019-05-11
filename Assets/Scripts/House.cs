@@ -13,6 +13,10 @@ public class House : MonoBehaviour
         {
             Debug.Log("You lose!");
         }
+        else
+        {
+            Debug.Log("House HP: " + HP);
+        }
     }
     
     // Start is called before the first frame update

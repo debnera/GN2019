@@ -5,6 +5,9 @@ using UnityEngine;
 public class Wolf : Enemy
 {
     public float movementForce = 10f;
+    public float attackSpeed = 0.5f; // Attacks per second (Sync this to BPM?)
+
+    private bool canAttack = true;
     private GameObject target;
     private Rigidbody2D rbody;
     
@@ -28,5 +31,25 @@ public class Wolf : Enemy
     {
         Vector2 direction = instrumentEffect.transform.position - transform.position;
         rbody.AddForce(-direction * 5f, ForceMode2D.Impulse);
+    }
+
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        House house = other.gameObject.GetComponent<House>();
+        if (house)
+        {
+            if (canAttack)
+            {
+                canAttack = false;
+                StartCoroutine(ResetAttack());
+                house.ReduceHP(1);
+            }
+        }
+    }
+
+    IEnumerator ResetAttack()
+    {
+        yield return new WaitForSeconds(1 / attackSpeed);
+        canAttack = true;
     }
 }
