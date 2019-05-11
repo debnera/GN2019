@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class Boulder : Wolf
 {
-    private float spinSpeed = 0.5f;
+    private float spinSpeed = 2f;
 
+    private void Start()
+    {
+        base.Start();
+        movementForce = 20f;
+    }
     // Start is called before the first frame update
     public override void OnInstrumentHit(InstrumentEffect instrumentEffect)
     {

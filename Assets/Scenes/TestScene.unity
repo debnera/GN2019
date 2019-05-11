@@ -277,11 +277,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameState
       objectReference: {fileID: 0}
-    - target: {fileID: 6236701760945531556, guid: ccd5f16f32c5af14cad7228504e6f5cd,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6236701760945531557, guid: ccd5f16f32c5af14cad7228504e6f5cd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -336,22 +331,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 58915154, guid: ccd5f16f32c5af14cad7228504e6f5cd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -11
-      objectReference: {fileID: 0}
-    - target: {fileID: 1888797474, guid: ccd5f16f32c5af14cad7228504e6f5cd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 10.93
-      objectReference: {fileID: 0}
-    - target: {fileID: 1928227264, guid: ccd5f16f32c5af14cad7228504e6f5cd, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -6.93
-      objectReference: {fileID: 0}
-    - target: {fileID: 414858974, guid: ccd5f16f32c5af14cad7228504e6f5cd, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 6.99
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccd5f16f32c5af14cad7228504e6f5cd, type: 3}

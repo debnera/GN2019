@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private Character currentCharacter;
     private GameObject playerName;
     public int playerNum = 1;
+    public int playerController = 0;
 
     private bool useKeyboard = true;
     private float flyingNameTime = 0.2f;
@@ -70,10 +71,10 @@ public class PlayerController : MonoBehaviour
             return;
         }
         
-        float vertical = Input.GetAxis("p" + playerNum.ToString() + "_joystick_horizontal");
-        float horizontal = -Input.GetAxis("p" + playerNum.ToString() + "_joystick_vertical");
-        if (Input.GetButtonDown("p" + playerNum.ToString() + "_trigger_back")) SelectNextCharacter();
-        if (Input.GetButtonDown("p" + playerNum.ToString() + "_trigger_front")) currentCharacter.PlayInstrument();
+        float vertical = Input.GetAxis("p" + playerController.ToString() + "_joystick_horizontal");
+        float horizontal = -Input.GetAxis("p" + playerController.ToString() + "_joystick_vertical");
+        if (Input.GetButtonDown("p" + playerController.ToString() + "_trigger_back")) SelectNextCharacter();
+        if (Input.GetButtonDown("p" + playerController.ToString() + "_trigger_front")) currentCharacter.PlayInstrument();
         //        Vector3 velocity =
         //            new Vector3(-Input.GetAxis("p" + playerNum.ToString() + "_joystick_horizontal") * speed * Time.deltaTime,
         //                0, -Input.GetAxis("p" + playerNum.ToString() + "_joystick_vertical") * speed * Time.deltaTime);
