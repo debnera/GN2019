@@ -22,7 +22,7 @@ public class Wolf : Enemy
     }
 
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
         float movementMultiplier = 1;
         if (!target || Vector3.Distance(target.transform.position, transform.position) > maxFollowDistance)

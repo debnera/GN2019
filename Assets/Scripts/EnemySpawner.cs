@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
     public float spawnTimeMax = 10f;
 
     private float nextSpawn;
-    private string[] enemies = new[] {"Wolf", "AngryCloud"};
+    private string[] enemies = new[] {"Wolf", "AngryCloud", "AngryWave", "AngryBoulder"};
     
     // Start is called before the first frame update
     void Start()
