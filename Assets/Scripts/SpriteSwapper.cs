@@ -57,7 +57,7 @@ public class SpriteSwapper : MonoBehaviour
     IEnumerator Swap()
     {
         
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.1f);
         canSwap = true;
         SwapImage();
     }
