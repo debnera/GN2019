@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     public int playerNum = 1;
 
     private bool useKeyboard = true;
+    private float flyingNameTime = 0.2f;
+    private bool animatingFlyingName = false;
 
     private int curCharacterIndex;
 
@@ -21,12 +23,12 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SelectNextCharacter();
         playerName = Resources.Load<GameObject>("PlayerName");
         playerName = Instantiate(playerName);
         playerName.GetComponent<TextMesh>().text = "P" + playerNum.ToString();
         Color[] colors = new[] {Color.green, Color.blue, Color.yellow, Color.red};
         playerName.GetComponent<TextMesh>().color = colors[playerNum-1];
+        SelectNextCharacter();
     }
 
     void SelectNextCharacter()
@@ -49,6 +51,7 @@ public class PlayerController : MonoBehaviour
                 newCharacter.currentPlayerController = this;
                 currentCharacter = newCharacter;
                 curCharacterIndex = index;
+                StartCoroutine(FlyingName());
                 return;
             }
         }
@@ -93,7 +96,30 @@ public class PlayerController : MonoBehaviour
         Vector3 velocity = new Vector2(horizontal * Time.deltaTime, vertical * Time.deltaTime);
         currentCharacter.Move(velocity);
 
+        if (!animatingFlyingName)
+            playerName.transform.position = GetPlayerTargetNamePos();
+    }
 
-        playerName.transform.position = currentCharacter.transform.position + playerNameOffset;
+    Vector3 GetPlayerTargetNamePos()
+    {
+        return currentCharacter.transform.position + playerNameOffset;
+    }
+
+    IEnumerator FlyingName()
+    {
+        if (animatingFlyingName) yield break; // Prevent multiple animations running simultaneously
+        animatingFlyingName = true;
+        Vector3 startPos = playerName.transform.position;
+        float timer = 0;
+        while (timer < flyingNameTime)
+        {
+            timer += Time.deltaTime;
+            float i = timer / flyingNameTime;
+            playerName.transform.position =
+                Vector3.Lerp(startPos, GetPlayerTargetNamePos(), i);
+            yield return null;
+        }
+
+        animatingFlyingName = false;
     }
 }
