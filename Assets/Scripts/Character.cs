@@ -8,10 +8,12 @@ public class Character : Damageable
     public float respawnTime = 5f;
     
     private float respawnTimer;
+
+    public EnemyType counteredEnemy;
     
     public PlayerController currentPlayerController;
-    
-    
+    private CharacterDef characterDef;
+
     // Start is called before the first frame update
     void Start()
     {
