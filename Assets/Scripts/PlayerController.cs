@@ -2,11 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mime;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    public Vector3 playerNameOffset;
     private Character currentCharacter;
+    private GameObject playerName;
     public int playerNum = 1;
 
     private bool useKeyboard = true;
@@ -18,6 +22,11 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         SelectNextCharacter();
+        playerName = Resources.Load<GameObject>("PlayerName");
+        playerName = Instantiate(playerName);
+        playerName.GetComponent<TextMesh>().text = "P" + playerNum.ToString();
+        Color[] colors = new[] {Color.green, Color.blue, Color.yellow, Color.red};
+        playerName.GetComponent<TextMesh>().color = colors[playerNum-1];
     }
 
     void SelectNextCharacter()
@@ -83,5 +92,8 @@ public class PlayerController : MonoBehaviour
         }
         Vector3 velocity = new Vector2(horizontal * Time.deltaTime, vertical * Time.deltaTime);
         currentCharacter.Move(velocity);
+
+
+        playerName.transform.position = currentCharacter.transform.position + playerNameOffset;
     }
 }
