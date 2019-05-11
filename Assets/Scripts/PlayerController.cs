@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
             int index = startIndex + i;
             if (index >= characters.Count) index -= characters.Count;  // Wrap around to 0
             Character newCharacter = characters[index];
-            if (!newCharacter.currentPlayerController)
+            if (!newCharacter.currentPlayerController && !newCharacter.dead)
             {
                 // Switch to the new character
                 if (currentCharacter) currentCharacter.currentPlayerController = null;
@@ -63,6 +63,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (currentCharacter && currentCharacter.dead) SelectNextCharacter();
         if (!currentCharacter)
         {
             Debug.LogError("PlayerController has no character!");

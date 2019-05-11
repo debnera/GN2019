@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character : MonoBehaviour
+public class Character : Damageable
 {
     public float movementSpeed = 100f;
+    public float respawnTime = 5f;
+    
+    private float respawnTimer;
     
     public PlayerController currentPlayerController;
     
@@ -22,20 +25,50 @@ public class Character : MonoBehaviour
         {
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
+
+        if (dead)
+        {
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            transform.rotation = Quaternion.Euler(0, 0, 90);
+            respawnTimer -= Time.deltaTime;
+            if (respawnTimer < 0)
+            {
+                dead = false;
+            }
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+
+        foreach (Collider2D collider in GetComponents<Collider2D>())
+        {
+            collider.enabled = !dead;
+        }
     }
 
     public void Move(Vector2 velocity)
     {
+        if (dead) return;
         GetComponent<Rigidbody2D>().velocity = velocity * movementSpeed;
     }
 
     public void PlayInstrument()
     {
+        if (dead) return;
         GameObject obj = Resources.Load<GameObject>("InstrumentEffect");
         //obj = Instantiate(obj, transform.position, Quaternion.identity);
         obj = Instantiate(obj, transform);
         obj.transform.localPosition = Vector3.zero;
         InstrumentEffect instrumentEffect = obj.AddComponent<InstrumentEffect>();
         instrumentEffect.SetSize(3f);  // TODO: Change size based on something
+        instrumentEffect.owner = this;
+    }
+
+
+    public override void ReceiveDamage(float amount)
+    {
+        dead = true;
+        respawnTimer = respawnTime;
     }
 }
