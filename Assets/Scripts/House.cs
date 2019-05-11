@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class House : MonoBehaviour
+public class House : Damageable
 {
     public float HP = 10f;
     public float newCharacterMin = 10f;
     public float newCharacterMax = 30f;
     public float spawnTimer;
 
-    public void ReduceHP(float value)
+    public override void ReceiveDamage(float value)
     {
         HP -= value;
         if (HP < 0)
@@ -31,7 +31,7 @@ public class House : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        spawnTimer -= Time.deltaTime;
+        //spawnTimer -= Time.deltaTime;
         if (spawnTimer < 0)
         {
             spawnTimer = Random.Range(newCharacterMin, newCharacterMax);

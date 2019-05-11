@@ -33,7 +33,16 @@ public class Wolf : Enemy
         }
 
         Character character = target.GetComponent<Character>();
-        if (character) movementMultiplier = 3;
+        if (character)
+        {
+            movementMultiplier = 3;
+            if (character.dead)
+            {
+                target = null;
+                return;
+            }
+        }
+        
         
         Vector2 direction = target.transform.position - transform.position;
         direction.Normalize();
@@ -52,16 +61,17 @@ public class Wolf : Enemy
 
     private void OnCollisionStay2D(Collision2D other)
     {
-        House house = other.gameObject.GetComponent<House>();
-        if (house)
+        Damageable damageable = other.gameObject.GetComponent<Damageable>();
+        if (damageable)
         {
             if (canAttack)
             {
                 canAttack = false;
                 StartCoroutine(ResetAttack());
-                house.ReduceHP(1);
+                damageable.ReceiveDamage(1);
             }
         }
+        
     }
 
     IEnumerator ResetAttack()

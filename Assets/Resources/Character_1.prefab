@@ -93,6 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d7928614d8a2be8d92b663a8815c158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dead: 0
   movementSpeed: 100
   currentPlayerController: {fileID: 0}
 --- !u!212 &5165314015803202217
