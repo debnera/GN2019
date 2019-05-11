@@ -10,6 +10,7 @@ public class Wolf : Enemy
     private bool canAttack = true;
     private GameObject target;
     private Rigidbody2D rbody;
+    private SpriteRenderer spriteRenderer;
     
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,7 @@ public class Wolf : Enemy
         House house = FindObjectOfType<House>();
         target = house.gameObject;
         rbody = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -24,6 +26,9 @@ public class Wolf : Enemy
     {
         Vector2 direction = target.transform.position - transform.position;
         direction.Normalize();
+
+        spriteRenderer.flipX = direction.x > 0;
+        
         rbody.AddForce(direction * movementForce * Time.deltaTime);
     }
 
