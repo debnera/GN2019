@@ -26,7 +26,7 @@ public class PlayerFactory : MonoBehaviour
         obj.GetComponent<PlayerController>().playerController = i;
         if(FindObjectsOfType<Character>().Length < numPlayer)
         {
-            FindObjectOfType<CharacterFactory>().popCharacter();
+            FindObjectOfType<CharacterFactory>().spawnCharacter();
             FindObjectOfType<CharacterFactory>().spawnTimer = FindObjectOfType<CharacterFactory>().spawnDelay;
         }
         //newPlayer.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Doggy" + numPlayer);

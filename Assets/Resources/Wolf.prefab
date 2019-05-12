@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2275646310208427719}
   m_Layer: 9
   m_Name: Wolf
-  m_TagString: Untagged
+  m_TagString: Animation
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,6 +74,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementForce: 100
+  type: 0
   attackSpeed: 0.5
   maxFollowDistance: 5
 --- !u!50 &3879765811107211929

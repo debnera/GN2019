@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7892950998354299137}
   m_Layer: 10
   m_Name: Character_1
-  m_TagString: Player
+  m_TagString: Animation
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,6 +72,7 @@ MonoBehaviour:
   movementSpeed: 100
   respawnTime: 5
   counteredEnemy: 0
+  instrumentColor: {r: 0, g: 0, b: 0, a: 0}
   currentPlayerController: {fileID: 0}
 --- !u!212 &5165314015803202217
 SpriteRenderer:

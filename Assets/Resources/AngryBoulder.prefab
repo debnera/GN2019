@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5356732899990783927}
   m_Layer: 11
   m_Name: AngryBoulder
-  m_TagString: Untagged
+  m_TagString: Animation
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

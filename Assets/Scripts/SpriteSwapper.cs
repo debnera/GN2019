@@ -6,7 +6,7 @@ public class SpriteSwapper : MonoBehaviour
 {
     public string spriteName;
     private Sprite[] sprites;
-    private int currentIndex = 0;
+    public int currentIndex = 0;
     private SpriteRenderer spriteRenderer;
     private int maximumIndex = 1;
     private int increment = 1;
@@ -20,12 +20,13 @@ public class SpriteSwapper : MonoBehaviour
     }
     private void Update()
     {
+        /*
         if(canSwap)
         {
             canSwap = false;
             StartCoroutine(Swap());
         }
-        
+        */
     }
 
     public void SwapImage()
@@ -41,9 +42,20 @@ public class SpriteSwapper : MonoBehaviour
         spriteRenderer.sprite = sprites[currentIndex];
     }
 
+    public void SwapImage(bool first)
+    {
+        currentIndex = first ? 0 : maximumIndex;
+        if (transform.childCount > 0)
+        {
+            if (currentIndex == 2) transform.GetChild(0).gameObject.SetActive(true);
+            else if (maximumIndex == 2) transform.GetChild(0).gameObject.SetActive(false);
+        }
+        spriteRenderer.sprite = sprites[currentIndex];
+    }
+
     public void StartAttack()
     {
-        currentIndex = 0;
+        //currentIndex = 0;
         increment = 2;
         maximumIndex = 2;
     }

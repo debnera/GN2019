@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public float spawnTimeMin = 4f;
-    public float spawnTimeMax = 5f;
-    public float difficultyIncrease = 0.2f;
+    public float spawnTimeMin = 10f;
+    public float spawnTimeMax = 15f;
+    public float difficultyIncrease = 0.02f;
     public float difficultyCD = 10f;
 
-    private bool canIncrease = false;
+    private bool canIncrease = true;
     private float nextSpawn;
     private string[] enemies = new[] {"Wolf", "AngryCloud", "AngryWave", "AngryBoulder", "Hamster"};
     

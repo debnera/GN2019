@@ -65,7 +65,7 @@ public class CharacterFactory : MonoBehaviour
         return obj;
     }
 
-    private void spawnCharacter()
+    public void spawnCharacter()
     {
         var character = popCharacter();
         if (character != null)
