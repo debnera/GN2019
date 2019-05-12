@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
         playerName = Resources.Load<GameObject>("PlayerName");
         playerName = Instantiate(playerName);
         playerName.GetComponent<TextMesh>().text = "P" + playerNum.ToString();
-        Color[] colors = new[] {Color.green, Color.blue, Color.yellow, Color.red};
+        Color32[] colors = new[] {new Color32(237,248,251, 255), new Color32(178,226,226, 255), new Color32(102,194,164, 255), new Color32(35,139,69, 255)};
         playerName.GetComponent<TextMesh>().color = colors[playerNum-1];
         SelectNextCharacter();
     }
