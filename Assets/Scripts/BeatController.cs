@@ -35,6 +35,7 @@ public class BeatController : MonoBehaviour
         if (countdown_halfBeat < 0)
         {
             Debug.Log("halfBeat");
+            hit_count++;
             countdown_halfBeat = beat_length*0.5f;
             Animate();
         }
@@ -43,7 +44,6 @@ public class BeatController : MonoBehaviour
         if (countdown_beat < 0)
         {
             Debug.Log("Beat");
-            hit_count++;
             countdown_beat = beat_length;
         }
 
@@ -77,6 +77,6 @@ public class BeatController : MonoBehaviour
 
     public bool onBeat()
     {
-        return countdown_beat <= margin || countdown_beat >= beat_length - margin;
+        return countdown_halfBeat <= margin || countdown_halfBeat >= beat_length*0.5 - margin;
     }
 }
