@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
 
     private int curCharacterIndex;
 
+    private bool invertedControls = false;
+
     
     // Start is called before the first frame update
     void Start()
@@ -75,6 +77,7 @@ public class PlayerController : MonoBehaviour
         float horizontal = -Input.GetAxis("p" + playerController.ToString() + "_joystick_vertical");
         if (Input.GetButtonDown("p" + playerController.ToString() + "_trigger_back")) SelectNextCharacter();
         if (Input.GetButtonDown("p" + playerController.ToString() + "_trigger_front")) currentCharacter.PlayInstrument();
+        if (Input.GetButtonDown("p" + playerController.ToString() + "_button_y")) invertedControls = !invertedControls;
         //        Vector3 velocity =
         //            new Vector3(-Input.GetAxis("p" + playerNum.ToString() + "_joystick_horizontal") * speed * Time.deltaTime,
         //                0, -Input.GetAxis("p" + playerNum.ToString() + "_joystick_vertical") * speed * Time.deltaTime);
@@ -103,6 +106,7 @@ public class PlayerController : MonoBehaviour
             }
         }
         Vector3 velocity = new Vector2(horizontal * Time.deltaTime, vertical * Time.deltaTime);
+        if (invertedControls) velocity = -velocity;
         currentCharacter.Move(velocity);
 
         if (!animatingFlyingName)
