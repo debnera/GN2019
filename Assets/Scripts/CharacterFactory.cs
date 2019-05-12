@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -23,11 +24,11 @@ public class CharacterFactory : MonoBehaviour
             new CharacterDef("Character_1", "Trubadur", EnemyType.Wolf);
 
         characterPool = new List<CharacterDef> {
-            new CharacterDef("Character_2", "Bass", EnemyType.Cloud),
+            new CharacterDef("Character_2", "Bass2", EnemyType.Cloud),
             new CharacterDef("Character_3", "Syna2", EnemyType.Typhoon),
             new CharacterDef("Character_4", "Crash1", EnemyType.Boulder),
         };
-        characterPool.OrderBy(i => Random.value).ToList();
+        characterPool.OrderBy(i => UnityEngine.Random.value).ToList();
         characterPool.Insert(0, startingChracter);
 
         spawnTimer = spawnDelay;
@@ -45,8 +46,12 @@ public class CharacterFactory : MonoBehaviour
 
         var audio = obj.AddComponent<AudioSource>();
         audio.clip = Resources.Load<AudioClip>(audioRoot + def.audioName);
-       // audio.playOnAwake = false;
-        //audio.mute = true;
+        if (audio.clip == null)
+        {
+            throw new NullReferenceException(audio.clip.name);
+        }
+        audio.playOnAwake = false;
+        audio.mute = true;
 
         obj.GetComponent<Character>().counteredEnemy = def.counteredEnemy;
 
