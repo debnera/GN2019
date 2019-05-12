@@ -25,6 +25,14 @@ public class Boulder : Enemy
     {
         base.FixedUpdate();
         transform.RotateAround(transform.position, new Vector3(0, 0, 1), spinSpeed);
+        if(target.transform.position.x > transform.position.x)
+        {
+            if(spinSpeed > 0) spinSpeed = -spinSpeed;
+        }
+        else
+        {
+            if (spinSpeed < 0) spinSpeed = -spinSpeed;
+        }
         ReduceSpeed();
     }
     private void ReduceSpeed()

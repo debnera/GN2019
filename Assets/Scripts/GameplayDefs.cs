@@ -4,10 +4,10 @@ using UnityEngine;
 public enum EnemyType
 {
     Wolf,
-    Cloud,
-    Typhoon,
-    Boulder,
-    Hamster,
+    AngryCloud,
+    AngryWave,
+    AngryBoulder,
+    Hamster
 }
 
 internal class CharacterDef

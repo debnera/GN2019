@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -8,7 +9,7 @@ public class CharacterFactory : MonoBehaviour
     public int spawnCount { get; private set; } = 0;
 
     public float spawnDelay { get; private set; } = 5;
-    public float spawnTimer { get; private set; } = 0;
+    public float spawnTimer { get; set; } = 0;
 
     public const string audioRoot = "Sounds/";
 
@@ -24,19 +25,19 @@ public class CharacterFactory : MonoBehaviour
             new CharacterDef("Character_1", "Trubadur", EnemyType.Wolf, new Color32(215,25,28, 255));
 
         characterPool = new List<CharacterDef> {
-            new CharacterDef("Character_2", "Bass", EnemyType.Cloud, new Color32(253,174,97, 255)),
-            new CharacterDef("Character_3", "Syna2", EnemyType.Typhoon, new Color32(255,255,191, 255)),
-            new CharacterDef("Character_4", "Crash1", EnemyType.Boulder, new Color32(166,217,106, 255)),
-            //new CharacterDef("Character_5", "Crash1", EnemyType.Hamster, new Color32(26,150,65, 255))
+            new CharacterDef("Character_2", "Bass2", EnemyType.AngryCloud, new Color32(253,174,97, 255)),
+            new CharacterDef("Character_3", "Syna2", EnemyType.AngryWave, new Color32(255,255,191, 255)),
+            new CharacterDef("Character_4", "Crash1", EnemyType.AngryBoulder, new Color32(166,217,106, 255)),
+            new CharacterDef("Character_5", "Flute", EnemyType.Hamster, new Color32(26,150,65, 255)),
         };
-        characterPool.OrderBy(i => Random.value).ToList();
+        characterPool.OrderBy(i => UnityEngine.Random.value).ToList();
         characterPool.Insert(0, startingChracter);
 
         //spawnTimer = spawnDelay;
     }
 
     // Initializes, instantiates and returns the next character
-    private GameObject popCharacter()
+    public GameObject popCharacter()
     {
         if (spawnCount == characterPool.Count)
         {
@@ -47,12 +48,15 @@ public class CharacterFactory : MonoBehaviour
         
         obj = Instantiate(obj, transform);
 
-        //var audio = obj.AddComponent<AudioSource>();
-        //audio.clip = Resources.Load<AudioClip>(audioRoot + def.audioName);
-       // audio.playOnAwake = false;
-        //audio.mute = true;
-        
-        //Debug.Log(def);
+
+        var audio = obj.AddComponent<AudioSource>();
+        audio.clip = Resources.Load<AudioClip>(audioRoot + def.audioName);
+        if (audio.clip == null)
+        {
+            throw new NullReferenceException(audio.clip.name);
+        }
+        audio.playOnAwake = false;
+        audio.mute = true;
 
         obj.GetComponent<Character>().counteredEnemy = def.counteredEnemy;
         obj.GetComponent<Character>().instrumentColor = def.instrumentColor;
