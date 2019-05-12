@@ -19,6 +19,7 @@ public class House : Damageable
         if (HP < 0)
         {
             Debug.Log("You lose!");
+            GameObject.Find("StateEngine").GetComponent<Animator>().Play("End");
         }
         else
         {
