@@ -16,8 +16,11 @@ public class Boulder : Enemy
     // Start is called before the first frame update
     public override void OnInstrumentHit(InstrumentEffect instrumentEffect)
     {
-        Vector2 direction = instrumentEffect.transform.position - transform.position;
-        rbody.AddForce(-direction * 0.5f, ForceMode2D.Impulse);
+        if (type == instrumentEffect.counteredEnemy)
+        {
+            Vector2 direction = instrumentEffect.transform.position - transform.position;
+            rbody.AddForce(-direction * 0.5f, ForceMode2D.Impulse);
+        }
     }
 
     // Update is called once per frame

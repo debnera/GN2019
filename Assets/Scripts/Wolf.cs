@@ -33,8 +33,12 @@ public class Wolf : Enemy
 
     public override void OnInstrumentHit(InstrumentEffect instrumentEffect)
     {
-        Vector2 direction = instrumentEffect.transform.position - transform.position;
-        rbody.AddForce(-direction * 5f, ForceMode2D.Impulse);
+        if (type == instrumentEffect.counteredEnemy)
+        {
+            Vector2 direction = instrumentEffect.transform.position - transform.position;
+            rbody.AddForce(-direction * 5f, ForceMode2D.Impulse);
+
+        }
         if (instrumentEffect.owner) target = instrumentEffect.owner.gameObject;
     }
 
