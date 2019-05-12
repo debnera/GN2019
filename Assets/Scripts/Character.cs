@@ -8,6 +8,7 @@ public class Character : Damageable
     public float respawnTime = 5f;
     
     private float respawnTimer;
+    private int lastHit;
 
     public EnemyType counteredEnemy;
     public Color instrumentColor;
@@ -64,7 +65,12 @@ public class Character : Damageable
 
     public void PlayInstrument()
     {
-        if (dead) return;
+        var controller = GetComponentInParent<BeatController>();
+        if (!controller.onBeat() || lastHit == controller.hit_count || dead) return;
+        lastHit = controller.hit_count;
+        var audio = GetComponent<AudioSource>();
+        audio.mute = false;
+
         GameObject obj = Resources.Load<GameObject>("InstrumentEffect");
         //obj = Instantiate(obj, transform.position, Quaternion.identity);
         obj = Instantiate(obj, transform);
