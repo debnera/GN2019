@@ -19,7 +19,7 @@ public class Boulder : Enemy
         if (type == instrumentEffect.counteredEnemy)
         {
             Vector2 direction = instrumentEffect.transform.position - transform.position;
-            rbody.AddForce(-direction * 0.5f, ForceMode2D.Impulse);
+            rbody.AddForce(-direction * 5f, ForceMode2D.Impulse);
         }
     }
 
