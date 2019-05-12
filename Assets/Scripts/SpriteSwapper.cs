@@ -11,12 +11,24 @@ public class SpriteSwapper : MonoBehaviour
     private int maximumIndex = 1;
     private int increment = 1;
     private bool canSwap = true;
+    public bool isPlaying = true;
     // Start is called before the first frame update
     void Start()
     {
         sprites = Resources.LoadAll<Sprite>("Sprites/"+spriteName);
         spriteRenderer = GetComponent<SpriteRenderer>();
         string layer = LayerMask.LayerToName(gameObject.layer);
+        /*
+        SpriteSwapper[] swaps = FindObjectsOfType<SpriteSwapper>();
+        foreach(SpriteSwapper swap in swaps)
+        {
+            if(swap.gameObject != gameObject)
+            {
+                currentIndex = swap.currentIndex > 0 ? maximumIndex : 0;
+                break;
+            }
+        }
+        */
     }
     private void Update()
     {
@@ -28,29 +40,37 @@ public class SpriteSwapper : MonoBehaviour
         }
         */
     }
-
     public void SwapImage()
     {
-        currentIndex += increment;
-        if (currentIndex > maximumIndex) currentIndex = 0;
-        if(transform.childCount > 0)
+        if (isPlaying)
         {
-            if (currentIndex == 2) transform.GetChild(0).gameObject.SetActive(true);
-            else if (maximumIndex == 2) transform.GetChild(0).gameObject.SetActive(false);
+            currentIndex += increment;
+            if (currentIndex > maximumIndex) currentIndex = 0;
+            Swap();
         }
-        
-        spriteRenderer.sprite = sprites[currentIndex];
     }
 
     public void SwapImage(bool first)
     {
-        currentIndex = first ? 0 : maximumIndex;
+        if(isPlaying)
+        {
+            currentIndex = first ? 0 : maximumIndex;
+            Swap();
+        }
+    }
+    private void Swap()
+    {
+
         if (transform.childCount > 0)
         {
             if (currentIndex == 2) transform.GetChild(0).gameObject.SetActive(true);
             else if (maximumIndex == 2) transform.GetChild(0).gameObject.SetActive(false);
         }
         spriteRenderer.sprite = sprites[currentIndex];
+        if (currentIndex == 2)
+        {
+            GetComponent<Enemy>().DealDamage();
+        }
     }
 
     public void StartAttack()
@@ -66,11 +86,5 @@ public class SpriteSwapper : MonoBehaviour
         maximumIndex = 1;
     }
 
-    IEnumerator Swap()
-    {
-        
-        yield return new WaitForSeconds(0.1f);
-        canSwap = true;
-        SwapImage();
-    }
+    
 }

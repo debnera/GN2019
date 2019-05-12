@@ -5,13 +5,14 @@ using UnityEngine;
 public abstract class Enemy : MonoBehaviour
 {
     public abstract void OnInstrumentHit(InstrumentEffect instrumentEffect);
-
+    public float damage = 1f;
     public float movementForce = 10f;
     protected GameObject target;
     protected Rigidbody2D rbody;
     protected float movementMultiplier = 1;
     private SpriteRenderer spriteRenderer;
     public EnemyType type;
+    public Damageable damageable;
 
     static public int killCounter = 0;
 
@@ -31,7 +32,13 @@ public abstract class Enemy : MonoBehaviour
 
         rbody.AddForce(direction * movementForce * movementMultiplier * Time.deltaTime);
     }
-
+    public void DealDamage()
+    {
+        if (damageable)
+        {
+            damageable.ReceiveDamage(damage);
+        }
+    }
     private void OnDestroy()
     {
         killCounter++;

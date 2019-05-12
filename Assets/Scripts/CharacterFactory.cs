@@ -55,7 +55,6 @@ public class CharacterFactory : MonoBehaviour
         {
             throw new NullReferenceException(audio.clip.name);
         }
-        audio.playOnAwake = false;
         audio.mute = true;
 
         obj.GetComponent<Character>().counteredEnemy = def.counteredEnemy;
