@@ -14,6 +14,8 @@ public abstract class Enemy : MonoBehaviour
     public EnemyType type;
     public Damageable damageable;
 
+    static public int killCounter = 0;
+
     protected void Start()
     {
         rbody = GetComponent<Rigidbody2D>();
@@ -30,13 +32,16 @@ public abstract class Enemy : MonoBehaviour
 
         rbody.AddForce(direction * movementForce * movementMultiplier * Time.deltaTime);
     }
-
     public void DealDamage()
     {
-        if(damageable)
+        if (damageable)
         {
             damageable.ReceiveDamage(damage);
         }
+    }
+    private void OnDestroy()
+    {
+        killCounter++;
     }
 }
 

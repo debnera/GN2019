@@ -17,8 +17,9 @@ public class BeatController : MonoBehaviour
     private const float beat_length = hits / (bpm / 60);
 
     public float countdown_halfBeat { get; private set; } = 0;
-
+    public int hit_count { get; private set; } = 0;
     private bool overHalf = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +43,7 @@ public class BeatController : MonoBehaviour
         if (countdown_beat < 0)
         {
             Debug.Log("Beat");
+            hit_count++;
             countdown_beat = beat_length;
         }
 
@@ -59,6 +61,7 @@ public class BeatController : MonoBehaviour
                 audio.Play();
             }
         }
+            
     }
 
     private void Animate()
