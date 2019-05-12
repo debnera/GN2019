@@ -74,6 +74,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementForce: 100
+  type: 4
   attackSpeed: 0.5
   maxFollowDistance: 5
 --- !u!50 &3879765811107211929

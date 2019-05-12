@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public float spawnTimeMin = 1f;
-    public float spawnTimeMax = 2f;
-    public float difficultyIncrease = 0.03f;
+    public float spawnTimeMin = 4f;
+    public float spawnTimeMax = 5f;
+    public float difficultyIncrease = 0.2f;
     public float difficultyCD = 10f;
 
     private bool canIncrease = false;
@@ -30,7 +30,8 @@ public class EnemySpawner : MonoBehaviour
             if(players.Length > 0)
             {
                 int index = Random.Range(0, players.Length);
-                Instantiate(Resources.Load(players[index].counteredEnemy.ToString()), GetRandomSpawnPosition(index), Quaternion.identity);
+                string enemy = players[index].counteredEnemy.ToString();
+                Instantiate(Resources.Load(enemy), GetRandomSpawnPosition(enemy), Quaternion.identity);
             }
         }
         if(canIncrease)
@@ -40,11 +41,11 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    Vector3 GetRandomSpawnPosition(int ind)
+    Vector3 GetRandomSpawnPosition(string enemy)
     {
         string spawns = "Bounds";
-        if (ind == 1) spawns = "CloudSpawn";
-        if (ind == 2) spawns = "WaveSpawn";
+        if (enemy == "AngryCloud") spawns = "CloudSpawn";
+        if (enemy == "AngryWave") spawns = "WaveSpawn";
         GameObject[] borderWalls = GameObject.FindGameObjectsWithTag(spawns);
         int index = Random.Range(0, borderWalls.Length);
         GameObject obj = borderWalls[index];

@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementForce: 10
+  type: 1
   attackSpeed: 0.5
 --- !u!50 &2726740768987030779
 Rigidbody2D:
