@@ -22,6 +22,7 @@ public class Character : Damageable
     {
         GetComponent<Rigidbody2D>().freezeRotation = true;
         spriteSwapper = GetComponent<SpriteSwapper>();
+        GetComponent<SpriteSwapper>().isPlaying = false;
     }
 
     // Update is called once per frame
@@ -82,5 +83,6 @@ public class Character : Damageable
     {
         dead = true;
         respawnTimer = respawnTime;
+        GetComponent<SpriteSwapper>().isPlaying = false;
     }
 }

@@ -27,17 +27,8 @@ public class AngryCloud : Enemy
     }
     private void OnCollisionStay2D(Collision2D other)
     {
-        Damageable damageable = other.gameObject.GetComponent<Damageable>();
-        if (damageable)
-        {
-            if (canAttack)
-            {
-                canAttack = false;
-                StartCoroutine(ResetAttack());
-                damageable.ReceiveDamage(1);
-                GetComponent<SpriteSwapper>().StartAttack();
-            }
-        }
+        damageable = other.gameObject.GetComponent<Damageable>();
+        GetComponent<SpriteSwapper>().StartAttack();
     }
 
     IEnumerator ResetAttack()

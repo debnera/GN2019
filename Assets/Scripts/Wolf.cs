@@ -7,6 +7,7 @@ public class Wolf : Enemy
     public float attackSpeed = 0.5f; // Attacks per second (Sync this to BPM?)
     public float maxFollowDistance = 5f;
     private bool canAttack = true;
+    
 
     // Update is called once per frame
     protected void FixedUpdate()
@@ -44,17 +45,8 @@ public class Wolf : Enemy
 
     private void OnCollisionStay2D(Collision2D other)
     {
-        Damageable damageable = other.gameObject.GetComponent<Damageable>();
-        if (damageable)
-        {
-            if (canAttack)
-            {
-                canAttack = false;
-                StartCoroutine(ResetAttack());
-                damageable.ReceiveDamage(1);
-                GetComponent<SpriteSwapper>().StartAttack();
-            }
-        }
+        damageable = other.gameObject.GetComponent<Damageable>();
+        GetComponent<SpriteSwapper>().StartAttack();
     }
 
     private void OnCollisionExit2D(Collision2D other)

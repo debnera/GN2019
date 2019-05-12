@@ -51,6 +51,7 @@ public class BeatController : MonoBehaviour
             countdown_loop = loop_length;
             countdown_beat = beat_length;
             countdown_halfBeat = beat_length * 0.5f;
+            Animate();
             foreach (var character in FindObjectsOfType<Character>())
             {
                 var audio = character.GetComponent<AudioSource>();
@@ -63,9 +64,11 @@ public class BeatController : MonoBehaviour
     private void Animate()
     {
         SpriteSwapper[] swaps = FindObjectsOfType<SpriteSwapper>();
+        if (countdown_beat > 0.7 * beat_length) overHalf = false;
+        else overHalf = true;
         foreach (SpriteSwapper swap in swaps)
         {
-            swap.SwapImage();
+            swap.SwapImage(!overHalf);
         }
     }
 
