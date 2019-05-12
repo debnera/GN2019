@@ -19,18 +19,20 @@ public class CharacterFactory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         startingChracter = 
-            new CharacterDef("Character_1", "Trubadur", EnemyType.Wolf);
+            new CharacterDef("Character_1", "Trubadur", EnemyType.Wolf, new Color32(215,25,28, 255));
 
         characterPool = new List<CharacterDef> {
-            new CharacterDef("Character_2", "Bass", EnemyType.Cloud),
-            new CharacterDef("Character_3", "Syna2", EnemyType.Typhoon),
-            new CharacterDef("Character_4", "Crash1", EnemyType.Boulder),
+            new CharacterDef("Character_2", "Bass", EnemyType.Cloud, new Color32(253,174,97, 255)),
+            new CharacterDef("Character_3", "Syna2", EnemyType.Typhoon, new Color32(255,255,191, 255)),
+            new CharacterDef("Character_4", "Crash1", EnemyType.Boulder, new Color32(166,217,106, 255)),
+            //new CharacterDef("Character_5", "Crash1", EnemyType.Hamster, new Color32(26,150,65, 255))
         };
         characterPool.OrderBy(i => Random.value).ToList();
         characterPool.Insert(0, startingChracter);
 
-        spawnTimer = spawnDelay;
+        //spawnTimer = spawnDelay;
     }
 
     // Initializes, instantiates and returns the next character
@@ -42,15 +44,21 @@ public class CharacterFactory : MonoBehaviour
         }
         var def = characterPool[spawnCount++];
         var obj = Resources.Load<GameObject>(def.prefabName);
+        
+        obj = Instantiate(obj, transform);
 
-        var audio = obj.AddComponent<AudioSource>();
-        audio.clip = Resources.Load<AudioClip>(audioRoot + def.audioName);
+        //var audio = obj.AddComponent<AudioSource>();
+        //audio.clip = Resources.Load<AudioClip>(audioRoot + def.audioName);
        // audio.playOnAwake = false;
         //audio.mute = true;
+        
+        //Debug.Log(def);
 
         obj.GetComponent<Character>().counteredEnemy = def.counteredEnemy;
+        obj.GetComponent<Character>().instrumentColor = def.instrumentColor;
+        Debug.Log(obj.GetComponent<Character>().instrumentColor);
 
-        return Instantiate(obj, transform);
+        return obj;
     }
 
     private void spawnCharacter()
