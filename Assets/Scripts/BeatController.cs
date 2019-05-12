@@ -26,7 +26,7 @@ public class BeatController : MonoBehaviour
         if (countdown < 0.0)
         {
             resetCountdown();
-            foreach (var character in GameObject.FindGameObjectsWithTag("Player"))
+            foreach (var character in FindObjectsOfType<Character>())
             {
                 var audio = character.GetComponent<AudioSource>();
                 audio.Stop();
