@@ -32,7 +32,7 @@ public class PlayerFactory : MonoBehaviour
     {
         for(int i = 1; i < c.Length+1; i++)
         {
-            if(Input.GetButtonDown("p" + i + "_trigger_front"))
+            if(Input.GetButtonDown("p" + i + "_trigger_front") || (i == 1 && Input.GetKeyDown(KeyCode.W)))
             {
                 if (c[i - 1] == false)
                 {
