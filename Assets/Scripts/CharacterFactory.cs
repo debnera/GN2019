@@ -27,7 +27,7 @@ public class CharacterFactory : MonoBehaviour
         characterPool = new List<CharacterDef> {
             new CharacterDef("Character_2", "Bass2", EnemyType.AngryCloud, new Color32(253,174,97, 255)),
             new CharacterDef("Character_3", "Syna2", EnemyType.AngryWave, new Color32(255,255,191, 255)),
-            new CharacterDef("Character_4", "Crash1", EnemyType.AngryBoulder, new Color32(166,217,106, 255)),
+            new CharacterDef("Character_4", "Crash", EnemyType.AngryBoulder, new Color32(166,217,106, 255)),
             new CharacterDef("Character_5", "Flute", EnemyType.Hamster, new Color32(26,150,65, 255)),
         };
         characterPool.OrderBy(i => UnityEngine.Random.value).ToList();

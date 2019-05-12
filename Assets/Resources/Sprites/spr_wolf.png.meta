@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: eff9893f5c977e04aaac57710366149c
+guid: 3bc1bf8abad435e4790adb12820884ff
 TextureImporter:
   fileIDToRecycleName:
     21300000: spr_wolf_0
@@ -101,7 +101,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8af4f8747f13e7f45bed626e409e3463
+      spriteID: cc1ee861e66b9fa45bf5397398c1604b
       vertices: []
       indices: 
       edges: []
@@ -121,7 +121,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b55e9be11efbef042ac1fbb4f480642f
+      spriteID: 396a578a2c0eb3447bc1068758e905ff
       vertices: []
       indices: 
       edges: []
@@ -141,7 +141,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ffcd3c35bac963a4aad74b0721257f04
+      spriteID: 0264790deb7259f4fb8b8f212cdb1d41
       vertices: []
       indices: 
       edges: []
@@ -149,7 +149,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: c326ebd3d4d905f4e943a763c449d716
+    spriteID: 7a507d48afb56be41866be8a1dd09e4f
     vertices: []
     indices: 
     edges: []

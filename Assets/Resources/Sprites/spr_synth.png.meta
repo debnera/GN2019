@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 85aa6aaf3991b6241aed82e9a00fc50c
+guid: 95f1b4e6ef684cb40acc51dcff8aa52f
 TextureImporter:
   fileIDToRecycleName:
     21300000: spr_synth_0
@@ -100,7 +100,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 446076e829808cf48b756ae6543123e3
+      spriteID: 4b28dd768ee6c8d48a44087ebfc25b2c
       vertices: []
       indices: 
       edges: []
@@ -120,7 +120,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 304367fb392510e4daa4a738c2e8d8b4
+      spriteID: 44a7d5097d4d5e14eadc5a2e7a26b295
       vertices: []
       indices: 
       edges: []
@@ -128,7 +128,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 2ad7e3d5ebce2e14199ca729877eaf47
+    spriteID: ff0a9fb8a46b74648b0f14996383bcf4
     vertices: []
     indices: 
     edges: []

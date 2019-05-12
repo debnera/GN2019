@@ -48,8 +48,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2e782bb1749a16a1bfea5e69b67470b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 1
   movementForce: 10
   type: 1
+  damageable: {fileID: 0}
   attackSpeed: 0.5
 --- !u!50 &2726740768987030779
 Rigidbody2D:
@@ -109,12 +111,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7ffca171e0a391142af4f71c083df5fb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 708c23c9ba6fee0438712416e24d7283, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.32, y: 0.64}
+  m_Size: {x: 1.28, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -133,6 +135,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteName: spr_cloud
+  currentIndex: 0
+  isPlaying: 1
 --- !u!61 &4006132540996024732
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -151,7 +155,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.28, y: 0.64}
-    newSize: {x: 0.32, y: 0.64}
+    newSize: {x: 1.28, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0

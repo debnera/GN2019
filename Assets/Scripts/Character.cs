@@ -32,10 +32,14 @@ public class Character : Damageable
     // Update is called once per frame
     void Update()
     {
+
         if (spriteSwapper)
         {
             spriteSwapper.isPlaying = !dead && !audio.mute;
         }
+
+        GetComponent<SpriteRenderer>().sortingOrder = (int)transform.position.y * 10;
+
         if (!currentPlayerController)
         {
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
@@ -75,6 +79,7 @@ public class Character : Damageable
     {
         if (dead) return;
         GetComponent<Rigidbody2D>().velocity = velocity * movementSpeed;
+        
     }
 
     public void PlayInstrument()

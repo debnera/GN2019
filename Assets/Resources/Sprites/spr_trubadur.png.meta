@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-guid: 192f6d718c3296b47a6dd02fb7498cd3
+guid: 81e6d22e1e160c34386950bbc9051d0c
 TextureImporter:
   fileIDToRecycleName:
-    21300000: spr_trubadur3_0
-    21300002: spr_trubadur3_1
+    21300000: spr_trubadur_0
+    21300002: spr_trubadur_1
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -86,7 +86,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_trubadur3_0
+      name: spr_trubadur_0
       rect:
         serializedVersion: 2
         x: 0
@@ -100,13 +100,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae1b4fd264254934388c1dae55aa4b6e
+      spriteID: 6f1a9819322290c438839fb2641f0c34
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_trubadur3_1
+      name: spr_trubadur_1
       rect:
         serializedVersion: 2
         x: 0
@@ -120,7 +120,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3fbc66d00df900541918c8bf84cb90c9
+      spriteID: 3a124c6a442edcf49ad08b91d8662b51
       vertices: []
       indices: 
       edges: []
@@ -128,7 +128,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 95e77c8bf3280f342a4eb819ca3ea96c
+    spriteID: 25b36683297e99348976e7110d59463a
     vertices: []
     indices: 
     edges: []

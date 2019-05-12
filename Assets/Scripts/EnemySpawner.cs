@@ -31,7 +31,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 int index = Random.Range(0, players.Length);
                 string enemy = players[index].counteredEnemy.ToString();
-                Instantiate(Resources.Load(enemy), GetRandomSpawnPosition(enemy), Quaternion.identity);
+                Instantiate(Resources.Load(enemy), GetRandomSpawnPosition(enemy), Quaternion.identity, transform.parent);
             }
         }
         if(canIncrease)

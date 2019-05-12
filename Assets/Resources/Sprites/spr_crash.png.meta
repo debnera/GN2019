@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ded607800b91d214a9fe751bf6b92917
+guid: 96515e8db67299e45af2148c415e0649
 TextureImporter:
   fileIDToRecycleName:
     21300000: spr_crash_0
@@ -100,7 +100,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fcce6beb43df64a429230b0cb5cbea66
+      spriteID: 2abf3a5056c3732458dc9aa3354527e4
       vertices: []
       indices: 
       edges: []
@@ -120,7 +120,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c457f7c407fe81148bd9c738fe466801
+      spriteID: a3273d95828e9c1438efd134743dc917
       vertices: []
       indices: 
       edges: []
@@ -128,7 +128,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: fb5fef886bcb7344780c227a2ab316af
+    spriteID: 665ed0bbac84b1646879614cfa4155a6
     vertices: []
     indices: 
     edges: []
