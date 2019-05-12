@@ -71,7 +71,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9bf0a6b0c910fc71a80a3cd5c124821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 10
+  dead: 0
+  HP: 20
+  newCharacterMin: 10
+  newCharacterMax: 30
+  spawnTimer: 0
 --- !u!212 &1579249600374567396
 SpriteRenderer:
   m_ObjectHideFlags: 0
