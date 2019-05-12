@@ -8,7 +8,7 @@ public class CharacterFactory : MonoBehaviour
 {
     public int spawnCount { get; private set; } = 0;
 
-    public float spawnDelay { get; private set; } = 5;
+    public float spawnDelay { get; private set; } = 20;
     public float spawnTimer { get; set; } = 0;
 
     public const string audioRoot = "Sounds/";
@@ -82,7 +82,7 @@ public class CharacterFactory : MonoBehaviour
             spawnTimer = spawnDelay;
 
             int players = GetComponentInChildren<PlayerFactory>().numPlayer;
-            if (spawnCount < players * 2)
+            if (spawnCount < players * 2 + 1)
             {
                 spawnCharacter();
             }

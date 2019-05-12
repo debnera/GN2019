@@ -50,7 +50,7 @@ public class AngryCloud : Enemy
         if (type == instrumentEffect.counteredEnemy)
         {
             float strength = 1; //instrumentEffect.GetStrength();
-            transform.localScale -= new Vector3(0.1f, 0.1f, 0.1f) * strength;
+            transform.localScale -= new Vector3(0.25f, 0.25f, 0.25f) * strength;
             if (transform.localScale.x <= 0.3f) Destroy(gameObject);
         }
     }

@@ -7,12 +7,20 @@ public class Wolf : Enemy
     public float attackSpeed = 0.5f; // Attacks per second (Sync this to BPM?)
     public float maxFollowDistance = 5f;
     private bool canAttack = true;
+
+    private float maxStun = 0.5f;
+    private float stunTimer;
     
 
     // Update is called once per frame
     protected void FixedUpdate()
     {
-        
+        if (stunTimer > 0)
+        {
+            // Stun enemy to make it slider longer from the pushback force
+            stunTimer -= Time.fixedDeltaTime;
+            return;
+        }
         if (!target || Vector3.Distance(target.transform.position, transform.position) > maxFollowDistance)
         {
             // Reset to house if current target dies
@@ -37,8 +45,8 @@ public class Wolf : Enemy
         if (type == instrumentEffect.counteredEnemy)
         {
             Vector2 direction = instrumentEffect.transform.position - transform.position;
-            rbody.AddForce(-direction * 5f, ForceMode2D.Impulse);
-
+            rbody.AddForce(-direction * 20f, ForceMode2D.Impulse);
+            stunTimer = maxStun;
         }
         if (instrumentEffect.owner) target = instrumentEffect.owner.gameObject;
     }
