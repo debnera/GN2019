@@ -332,11 +332,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EndState
       objectReference: {fileID: 0}
-    - target: {fileID: 9003661929394385019, guid: 071b8e38a446001259c860c3c88efff5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2362803507402497871, guid: 071b8e38a446001259c860c3c88efff5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -391,21 +386,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8512208310711975701, guid: 071b8e38a446001259c860c3c88efff5,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 698190109253224106, guid: 071b8e38a446001259c860c3c88efff5,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 698190109253224106, guid: 071b8e38a446001259c860c3c88efff5,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 323.61
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 071b8e38a446001259c860c3c88efff5, type: 3}
@@ -531,17 +511,17 @@ PrefabInstance:
     - target: {fileID: 5566405186733860548, guid: ccd5f16f32c5af14cad7228504e6f5cd,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4766566498911957056, guid: ccd5f16f32c5af14cad7228504e6f5cd,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1254934112665848081, guid: ccd5f16f32c5af14cad7228504e6f5cd,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccd5f16f32c5af14cad7228504e6f5cd, type: 3}

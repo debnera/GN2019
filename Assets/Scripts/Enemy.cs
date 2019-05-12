@@ -13,6 +13,8 @@ public abstract class Enemy : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     public EnemyType type;
 
+    static public int killCounter = 0;
+
     protected void Start()
     {
         rbody = GetComponent<Rigidbody2D>();
@@ -28,6 +30,11 @@ public abstract class Enemy : MonoBehaviour
         spriteRenderer.flipX = direction.x > 0;
 
         rbody.AddForce(direction * movementForce * movementMultiplier * Time.deltaTime);
+    }
+
+    private void OnDestroy()
+    {
+        killCounter++;
     }
 }
 
