@@ -45,8 +45,8 @@ public class CharacterFactory : MonoBehaviour
 
         var audio = obj.AddComponent<AudioSource>();
         audio.clip = Resources.Load<AudioClip>(audioRoot + def.audioName);
-        audio.playOnAwake = false;
-        audio.mute = true;
+       // audio.playOnAwake = false;
+        //audio.mute = true;
 
         obj.GetComponent<Character>().counteredEnemy = def.counteredEnemy;
 
