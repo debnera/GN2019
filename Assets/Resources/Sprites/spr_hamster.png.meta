@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6754cd19e1e6eff43aff1e48b6b1bf73
+guid: e9cff3b9d53ff9c479d833123fdedd22
 TextureImporter:
   fileIDToRecycleName:
-    21300000: New Piskel (36)_0
-    21300002: New Piskel (36)_1
-    21300004: New Piskel (36)_2
+    21300000: spr_hamster_0
+    21300002: spr_hamster_1
+    21300004: spr_hamster_2
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -87,7 +87,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: New Piskel (36)_0
+      name: spr_hamster_0
       rect:
         serializedVersion: 2
         x: 0
@@ -101,13 +101,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 400236a7a24be7b4998d85cc860c1bd4
+      spriteID: 51b919e804ce79e48a75268f549b1ef3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New Piskel (36)_1
+      name: spr_hamster_1
       rect:
         serializedVersion: 2
         x: 64
@@ -121,13 +121,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15cb657830a3d614a9940dde5ebe2905
+      spriteID: a32aea06fe86bb84e8ac2d08091f38ff
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New Piskel (36)_2
+      name: spr_hamster_2
       rect:
         serializedVersion: 2
         x: 0
@@ -141,7 +141,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18a0ef5c19b76a0429cbc6eff93e39b2
+      spriteID: 8a0039ba79fe95841ab15c7dcb63a0ab
       vertices: []
       indices: 
       edges: []
@@ -149,7 +149,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 6c03dbb281ac67345a724542fdf286d5
+    spriteID: 11fb197da65101144b0c74e65404f7e2
     vertices: []
     indices: 
     edges: []

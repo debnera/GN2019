@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0bc0f68ada9f447408c04f122d7f88f7
+guid: 70985416cedeed442b5eb3ca55cc5c77
 TextureImporter:
   fileIDToRecycleName:
     21300000: spr_flute_0
@@ -100,7 +100,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20d47653f4a02a0428507b5009d60bff
+      spriteID: 6eb7da450b3867e4781cfcedfd4ca089
       vertices: []
       indices: 
       edges: []
@@ -120,7 +120,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2cf3572fff1774f47859118b854420b8
+      spriteID: 7b12508d93943da41822236b160118cd
       vertices: []
       indices: 
       edges: []
@@ -128,7 +128,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 013cad2c230a19743b8f80885ce6ebf2
+    spriteID: ce3f139528d299e459c0bc01922ac78f
     vertices: []
     indices: 
     edges: []

@@ -24,7 +24,7 @@ public abstract class Enemy : MonoBehaviour
 
     protected void FixedUpdate()
     {
-        
+        spriteRenderer.sortingOrder = (int) transform.position.y*10;
         Vector2 direction = target.transform.position - transform.position;
         direction.Normalize();
 

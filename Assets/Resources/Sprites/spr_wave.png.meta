@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1157b73eb99b4bf41aca4d36134a7328
+guid: ba9c4f197b297b24aa1a3fb3d50ef58c
 TextureImporter:
   fileIDToRecycleName:
     21300000: spr_wave_0
@@ -100,7 +100,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c9c0aef17cc81564b80ef112c6ba7a9c
+      spriteID: 48069fe75807bd849a2b81dbffa714e2
       vertices: []
       indices: 
       edges: []
@@ -120,7 +120,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb3b9e2fde041aa4caa64346ed27af21
+      spriteID: d4d281bb757452740a72402bdae7bacf
       vertices: []
       indices: 
       edges: []
@@ -128,7 +128,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: ea40c0e56cd63d34b88910725ea79448
+    spriteID: f60ac7ec439592e499fbacd506e8f1ef
     vertices: []
     indices: 
     edges: []

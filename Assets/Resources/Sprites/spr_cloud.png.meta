@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7ffca171e0a391142af4f71c083df5fb
+guid: 708c23c9ba6fee0438712416e24d7283
 TextureImporter:
   fileIDToRecycleName:
     21300000: spr_cloud_0
@@ -101,7 +101,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15b020d0a6f1dce4785fbcd59ce39a22
+      spriteID: ebab18aa067dc284fb8a69a05fcec913
       vertices: []
       indices: 
       edges: []
@@ -121,7 +121,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa165c07514f9f24aa0045b83dc13611
+      spriteID: 028b05f8f0567194e831245ecdd4dd5c
       vertices: []
       indices: 
       edges: []
@@ -141,7 +141,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f805550a24aacb24786a34d8b5af19d3
+      spriteID: 05ce35d0f023d89489847b97b489afd4
       vertices: []
       indices: 
       edges: []
@@ -149,7 +149,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 7e3b202f7102c444eb00f4743b42eefd
+    spriteID: af83404ac01445647a813878b56ddb54
     vertices: []
     indices: 
     edges: []

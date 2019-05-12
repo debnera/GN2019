@@ -9,6 +9,7 @@ TagManager:
   - WaveTarget
   - CloudSpawn
   - CloudTarget
+  - Animation
   layers:
   - Default
   - TransparentFX
