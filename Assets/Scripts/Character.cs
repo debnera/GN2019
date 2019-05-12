@@ -14,10 +14,13 @@ public class Character : Damageable
     public PlayerController currentPlayerController;
     private CharacterDef characterDef;
 
+    private SpriteSwapper spriteSwapper;
+
     // Start is called before the first frame update
     void Start()
     {
         GetComponent<Rigidbody2D>().freezeRotation = true;
+        spriteSwapper = GetComponent<SpriteSwapper>();
     }
 
     // Update is called once per frame
@@ -30,6 +33,8 @@ public class Character : Damageable
 
         if (dead)
         {
+            
+            if (spriteSwapper) spriteSwapper.enabled = false;
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             transform.rotation = Quaternion.Euler(0, 0, 90);
             respawnTimer -= Time.deltaTime;
@@ -40,6 +45,7 @@ public class Character : Damageable
         }
         else
         {
+            if (spriteSwapper) spriteSwapper.enabled = true;
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
 
