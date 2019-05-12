@@ -18,26 +18,40 @@ public class Character : Damageable
 
     private SpriteSwapper spriteSwapper;
 
+    private AudioSource audio;
+
     // Start is called before the first frame update
     void Start()
     {
         GetComponent<Rigidbody2D>().freezeRotation = true;
         spriteSwapper = GetComponent<SpriteSwapper>();
         GetComponent<SpriteSwapper>().isPlaying = false;
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (spriteSwapper)
+        {
+            spriteSwapper.isPlaying = !dead && !audio.mute;
+        }
         if (!currentPlayerController)
         {
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            
+            audio.volume -= Time.deltaTime / 5f;
+            if (audio.volume <= 0) audio.mute = true;
+        }
+        else
+        {
+            
+            audio.volume = 1;
         }
 
         if (dead)
         {
-            
-            if (spriteSwapper) spriteSwapper.enabled = false;
+            audio.mute = true;
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             transform.rotation = Quaternion.Euler(0, 0, 90);
             respawnTimer -= Time.deltaTime;
@@ -48,7 +62,6 @@ public class Character : Damageable
         }
         else
         {
-            if (spriteSwapper) spriteSwapper.enabled = true;
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
 
@@ -71,6 +84,8 @@ public class Character : Damageable
         lastHit = controller.hit_count;
         var audio = GetComponent<AudioSource>();
         audio.mute = false;
+        spriteSwapper = GetComponent<SpriteSwapper>();
+        GetComponent<SpriteSwapper>().isPlaying = true;
 
         GameObject obj = Resources.Load<GameObject>("InstrumentEffect");
         //obj = Instantiate(obj, transform.position, Quaternion.identity);
