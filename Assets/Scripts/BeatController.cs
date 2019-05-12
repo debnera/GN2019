@@ -54,11 +54,11 @@ public class BeatController : MonoBehaviour
             countdown_beat = beat_length;
             countdown_halfBeat = beat_length * 0.5f;
             Animate();
-            foreach (var character in FindObjectsOfType<Character>())
+            foreach (var audioSource in FindObjectOfType<CharacterFactory>().audioSources)
             {
-                var audio = character.GetComponent<AudioSource>();
-                audio.Stop();
-                audio.Play();
+                //var audioSource = character.audioSource;
+                audioSource.Stop();
+                audioSource.Play();
             }
         }
             

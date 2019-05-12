@@ -18,7 +18,7 @@ public class Character : Damageable
 
     private SpriteSwapper spriteSwapper;
 
-    private AudioSource audio;
+    public AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +26,6 @@ public class Character : Damageable
         GetComponent<Rigidbody2D>().freezeRotation = true;
         spriteSwapper = GetComponent<SpriteSwapper>();
         GetComponent<SpriteSwapper>().isPlaying = false;
-        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -35,7 +34,7 @@ public class Character : Damageable
 
         if (spriteSwapper)
         {
-            spriteSwapper.isPlaying = !dead && !audio.mute;
+            spriteSwapper.isPlaying = !dead && !audioSource.mute;
         }
 
         GetComponent<SpriteRenderer>().sortingOrder = (int)transform.position.y * 10;
@@ -44,18 +43,18 @@ public class Character : Damageable
         {
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             
-            audio.volume -= Time.deltaTime / 5f;
-            if (audio.volume <= 0) audio.mute = true;
+            audioSource.volume -= Time.deltaTime / 5f;
+            if (audioSource.volume <= 0) audioSource.mute = true;
         }
         else
         {
             
-            audio.volume = 1;
+            audioSource.volume = 1;
         }
 
         if (dead)
         {
-            audio.mute = true;
+            audioSource.mute = true;
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             transform.rotation = Quaternion.Euler(0, 0, 90);
             respawnTimer -= Time.deltaTime;
@@ -87,8 +86,7 @@ public class Character : Damageable
         var controller = GetComponentInParent<BeatController>();
         if (!controller.onBeat() || lastHit == controller.hit_count || dead) return;
         lastHit = controller.hit_count;
-        var audio = GetComponent<AudioSource>();
-        audio.mute = false;
+        audioSource.mute = false;
         spriteSwapper = GetComponent<SpriteSwapper>();
         GetComponent<SpriteSwapper>().isPlaying = true;
 

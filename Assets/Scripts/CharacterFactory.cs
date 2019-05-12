@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class CharacterFactory : MonoBehaviour
 {
+    
+    
     public int spawnCount { get; private set; } = 0;
 
     public float spawnDelay { get; private set; } = 20;
@@ -13,6 +15,8 @@ public class CharacterFactory : MonoBehaviour
 
     public const string audioRoot = "Sounds/";
 
+    public List<AudioSource> audioSources;
+    
     private CharacterDef startingChracter;
     private List<CharacterDef> characterPool;
     
@@ -32,6 +36,20 @@ public class CharacterFactory : MonoBehaviour
         };
         characterPool.OrderBy(i => UnityEngine.Random.value).ToList();
         characterPool.Insert(0, startingChracter);
+        
+        audioSources = new List<AudioSource>();
+
+        foreach (CharacterDef def in characterPool)
+        {
+            AudioSource source = gameObject.AddComponent<AudioSource>();
+            source.clip = Resources.Load<AudioClip>(audioRoot + def.audioName);
+            if (source.clip == null)
+            {
+                throw new NullReferenceException(source.clip.name);
+            }
+            source.mute = true;
+            audioSources.Add(source);
+        }
 
         //spawnTimer = spawnDelay;
     }
@@ -43,12 +61,14 @@ public class CharacterFactory : MonoBehaviour
         {
             return null;
         }
-        var def = characterPool[spawnCount++];
+        var def = characterPool[spawnCount];
+        AudioSource audioSource = audioSources[spawnCount];
+        spawnCount++;
         var obj = Resources.Load<GameObject>(def.prefabName);
         
         obj = Instantiate(obj, transform);
 
-
+/*
         var audio = obj.AddComponent<AudioSource>();
         audio.clip = Resources.Load<AudioClip>(audioRoot + def.audioName);
         if (audio.clip == null)
@@ -56,10 +76,11 @@ public class CharacterFactory : MonoBehaviour
             throw new NullReferenceException(audio.clip.name);
         }
         audio.mute = true;
-
+*/
         obj.GetComponent<Character>().counteredEnemy = def.counteredEnemy;
         obj.GetComponent<Character>().instrumentColor = def.instrumentColor;
-        Debug.Log(obj.GetComponent<Character>().instrumentColor);
+        obj.GetComponent<Character>().audioSource = audioSource;
+        //Debug.Log(obj.GetComponent<Character>().instrumentColor);
 
         return obj;
     }
