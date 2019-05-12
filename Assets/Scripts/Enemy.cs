@@ -11,6 +11,7 @@ public abstract class Enemy : MonoBehaviour
     protected Rigidbody2D rbody;
     protected float movementMultiplier = 1;
     private SpriteRenderer spriteRenderer;
+    public EnemyType type;
 
     protected void Start()
     {

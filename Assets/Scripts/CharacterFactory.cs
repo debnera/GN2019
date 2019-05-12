@@ -8,7 +8,7 @@ public class CharacterFactory : MonoBehaviour
     public int spawnCount { get; private set; } = 0;
 
     public float spawnDelay { get; private set; } = 5;
-    public float spawnTimer { get; private set; } = 0;
+    public float spawnTimer { get; set; } = 0;
 
     public const string audioRoot = "Sounds/";
 
@@ -23,9 +23,10 @@ public class CharacterFactory : MonoBehaviour
             new CharacterDef("Character_1", "Trubadur", EnemyType.Wolf);
 
         characterPool = new List<CharacterDef> {
-            new CharacterDef("Character_2", "Bass", EnemyType.Cloud),
-            new CharacterDef("Character_3", "Syna2", EnemyType.Typhoon),
-            new CharacterDef("Character_4", "Crash1", EnemyType.Boulder),
+            new CharacterDef("Character_2", "Bass", EnemyType.AngryCloud),
+            new CharacterDef("Character_3", "Syna2", EnemyType.AngryWave),
+            new CharacterDef("Character_4", "Crash1", EnemyType.AngryBoulder),
+            new CharacterDef("Character_4", "Crash1", EnemyType.Hamster),
         };
         characterPool.OrderBy(i => Random.value).ToList();
         characterPool.Insert(0, startingChracter);
@@ -34,7 +35,7 @@ public class CharacterFactory : MonoBehaviour
     }
 
     // Initializes, instantiates and returns the next character
-    private GameObject popCharacter()
+    public GameObject popCharacter()
     {
         if (spawnCount == characterPool.Count)
         {

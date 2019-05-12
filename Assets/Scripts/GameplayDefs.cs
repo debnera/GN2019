@@ -2,9 +2,10 @@
 public enum EnemyType
 {
     Wolf,
-    Cloud,
-    Typhoon,
-    Boulder,
+    AngryCloud,
+    AngryWave,
+    AngryBoulder,
+    Hamster
 }
 
 internal class CharacterDef
