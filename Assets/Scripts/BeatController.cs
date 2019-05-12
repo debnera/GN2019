@@ -10,22 +10,25 @@ public class BeatController : MonoBehaviour
 
     public const float margin = 0.2F;
 
-    public float countdown { get; private set; }
-    private const float countdown_max = (bars * hits) / (bpm / 60);
+    public float countdown_loop { get; private set; } = 0;
+    private const float loop_length = (bars * hits) / (bpm / 60);
+
+    public float countdown_beat { get; private set; } = 0;
+    private const float beat_length = hits / (bpm / 60);
 
     // Start is called before the first frame update
     void Start()
     {
-        resetCountdown();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        countdown -= Time.deltaTime;
-        if (countdown < 0.0)
+        countdown_loop -= Time.deltaTime;
+        if (countdown_loop < 0)
         {
-            resetCountdown();
+            countdown_loop = loop_length;
             foreach (var character in FindObjectsOfType<Character>())
             {
                 var audio = character.GetComponent<AudioSource>();
@@ -33,15 +36,17 @@ public class BeatController : MonoBehaviour
                 audio.Play();
             }
         }
+
+        countdown_beat -= Time.deltaTime;
+        if (countdown_beat < 0)
+        {
+            Debug.Log("Beat");
+            countdown_beat = beat_length;
+        }
     }
 
-    void resetCountdown()
+    public bool onBeat()
     {
-        countdown = countdown_max;
-    }
-
-    bool onBeat()
-    {
-        return countdown <= margin || countdown >= countdown_max - margin;
+        return countdown_beat <= margin || countdown_beat >= beat_length - margin;
     }
 }
