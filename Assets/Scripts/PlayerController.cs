@@ -135,4 +135,14 @@ public class PlayerController : MonoBehaviour
 
         animatingFlyingName = false;
     }
+
+    private void OnDisable()
+    {
+        if(playerName) playerName.gameObject.SetActive(false);
+    }
+
+    private void OnEnable()
+    {
+        if(playerName) playerName.gameObject.SetActive(true);
+    }
 }
