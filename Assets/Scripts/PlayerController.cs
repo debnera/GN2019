@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentCharacter && currentCharacter.dead) SelectNextCharacter();
+        if (currentCharacter && currentCharacter.dead || !currentCharacter) SelectNextCharacter();
         if (!currentCharacter)
         {
             Debug.LogError("PlayerController has no character!");
