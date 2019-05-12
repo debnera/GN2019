@@ -40,9 +40,12 @@ public class AngryWave : Enemy
 
     public override void OnInstrumentHit(InstrumentEffect instrumentEffect)
     {
-        float strength = 1;//instrumentEffect.GetStrength();
-        transform.localScale -= new Vector3(0.1f, 0.1f, 0.1f) * strength;
-        if (transform.localScale.x <= 0.3f) Destroy(gameObject);
+        if (type == instrumentEffect.counteredEnemy)
+        {
+            float strength = 1; //instrumentEffect.GetStrength();
+            transform.localScale -= new Vector3(0.1f, 0.1f, 0.1f) * strength;
+            if (transform.localScale.x <= 0.3f) Destroy(gameObject);
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
