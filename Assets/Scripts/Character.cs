@@ -10,6 +10,7 @@ public class Character : Damageable
     private float respawnTimer;
 
     public EnemyType counteredEnemy;
+    public Color instrumentColor;
     
     public PlayerController currentPlayerController;
     private CharacterDef characterDef;
@@ -71,6 +72,9 @@ public class Character : Damageable
         InstrumentEffect instrumentEffect = obj.AddComponent<InstrumentEffect>();
         instrumentEffect.SetSize(3f);  // TODO: Change size based on something
         instrumentEffect.owner = this;
+        instrumentEffect.counteredEnemy = counteredEnemy;
+        instrumentEffect.SetColor(instrumentColor);
+        Debug.Log(instrumentEffect.GetComponent<SpriteRenderer>().color);
     }
 
 

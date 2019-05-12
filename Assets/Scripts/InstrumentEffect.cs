@@ -5,6 +5,7 @@ using UnityEngine;
 public class InstrumentEffect : MonoBehaviour
 {
     public Character owner;
+    public EnemyType counteredEnemy;
     
     private float timeToLive = 0.2f;
     private float timer;
@@ -15,6 +16,11 @@ public class InstrumentEffect : MonoBehaviour
     {
         originalScale = size;
         transform.localScale = new Vector3(size, size);
+    }
+
+    public void SetColor(Color color)
+    {
+        GetComponent<SpriteRenderer>().color = color;
     }
 
     public float GetStrength()
